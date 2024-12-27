@@ -1,5 +1,8 @@
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 import { createApp } from 'vue'
 import App from './App.vue'
 
-createApp(App).mount('#app')
-console.log('hello world')
+const app = createApp(App)
+app.mount('#app')
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'

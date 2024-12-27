@@ -1,22 +1,10 @@
-<script setup>
-import { reactive } from 'vue';
-
-export default {
-  setup() {
-    const original = reactive({
-      count: 0,
-    });
-    original.count++;
-    console.log(original.count)
-    return {
-
-    };
-  },
-}
-</script>
-
 <template>
-  <div></div>
+  <TheNav />
+  <TheView />
 </template>
+<script setup>
+import TheNav from './components/TheNav.vue'
+import TheView from './components/TheView.vue'
+</script>
 
 <style></style>

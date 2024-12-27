@@ -18,6 +18,7 @@ export default [
     rules: {
       'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off', // 콘솔 사용 경고, 컴파일단에서만 경고를 주는거고 실제 브라우저단에서 적용되는게 아님
       'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+      'no-unused-vars': 'off',
       'prettier/prettier': [
         'error',
         {
