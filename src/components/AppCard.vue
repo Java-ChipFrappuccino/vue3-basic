@@ -1,18 +1,21 @@
 <template>
   <div class="card">
     <div class="card-body">
-      <span class="badge bg-secondary">{{ type === 'news' ? '뉴스' : '공지사항' }}</span>
+      <span class="badge bg-secondary">{{ typeName }}</span>
       <h5 class="card-title mt-2">{{ title }}</h5>
       <p class="card-text">
         {{ contents }}
       </p>
-      <a v-if="isLiked" href="#" class="btn btn-danger">Go somewhere</a>
-      <a v-else href="#" class="btn btn-outline-danger">Go somewhere</a>
+      <a href="#" class="btn" :class="isLikeClass">Go somewhere</a>
     </div>
   </div>
+  <!-- <br />
+  {{ obj }} -->
 </template>
 
 <script setup>
+import { computed } from 'vue'
+
 const props = defineProps({
   title: {
     type: String,
@@ -35,7 +38,14 @@ const props = defineProps({
       return ['news', 'notice'].includes(value)
     }, // 유효성 검사
   },
+  obj: {
+    type: Object,
+    default: () => {},
+  },
 })
+
+const isLikeClass = computed(() => (props.isLiked ? 'btn-danger' : 'btn-outline-danger'))
+const typeName = computed(() => (props.type === 'news' ? '뉴스' : '공지사항'))
 </script>
 
 <style></style>
