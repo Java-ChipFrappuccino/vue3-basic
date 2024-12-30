@@ -1,51 +1,21 @@
 <template>
   <div class="card">
-    <div class="card-body">
-      <span class="badge bg-secondary">{{ typeName }}</span>
-      <h5 class="card-title mt-2">{{ title }}</h5>
-      <p class="card-text">
-        {{ contents }}
-      </p>
-      <a href="#" class="btn" :class="isLikeClass">Go somewhere</a>
+    <div v-if="$slots.header" class="card-header">
+      <slot name="header" hd-data="헤더콘텐츠"></slot>
+    </div>
+    <div v-if="$slots.default" class="card-body">
+      <slot :say-hello="sayHello" 자식데이터="자이자이자식아!">#body</slot>
+    </div>
+    <div v-if="$slots.footer" class="card-footer text-body-secondary">
+      <slot name="footer" ft-data="푸터콘텐츠"></slot>
     </div>
   </div>
-  <!-- <br />
-  {{ obj }} -->
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { ref } from 'vue'
 
-const props = defineProps({
-  title: {
-    type: String,
-    default: 'Default Title', // 기본값
-    required: true, // 필수값
-  },
-  contents: {
-    type: String,
-    default: 'Default Title', // 기본값
-    required: true, // 필수값
-  },
-  isLiked: {
-    type: Boolean,
-    default: false, // 기본값
-  },
-  type: {
-    type: String,
-    default: 'news', // 기본값
-    validator: (value) => {
-      return ['news', 'notice'].includes(value)
-    }, // 유효성 검사
-  },
-  obj: {
-    type: Object,
-    default: () => {},
-  },
-})
-
-const isLikeClass = computed(() => (props.isLiked ? 'btn-danger' : 'btn-outline-danger'))
-const typeName = computed(() => (props.type === 'news' ? '뉴스' : '공지사항'))
+const sayHello = ref('hello')
 </script>
 
-<style></style>
+<style scoped></style>

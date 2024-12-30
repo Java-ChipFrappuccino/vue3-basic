@@ -1,16 +1,9 @@
 <template>
-  <main>
-    <div class="container py-4">
-      <MyButton @click="sayHello" id="test" class="parent" />
-      <LabelInput label="이름" id="who" />
-    </div>
-  </main>
+  <TemplateRefs></TemplateRefs>
 </template>
 
 <script setup>
-import MyButton from './MyButton.vue'
-import LabelInput from './LabelInput.vue'
-const sayHello = () => alert('hello')
+import TemplateRefs from './TemplateRefs.vue'
 </script>
 
 <style scoped></style>

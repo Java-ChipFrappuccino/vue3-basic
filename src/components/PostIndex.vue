@@ -5,13 +5,13 @@
       <hr class="my-4" />
       <div class="row g-3">
         <div v-for="post in posts" :key="post.id" class="col col-4">
-          <AppCard
+          <PostItem
             :title="post.title"
             :contents="post.body"
             :is-liked="post.isLiked"
             :type="post.type"
             :obj="obj"
-          ></AppCard>
+          ></PostItem>
         </div>
         <hr class="my-4" />
         <LabelInput label="이름" />
@@ -21,7 +21,7 @@
 </template>
 
 <script setup>
-import AppCard from './AppCard.vue'
+import PostItem from './PostItem.vue'
 import PostCreate from './PostCreate.vue'
 import LabelInput from './LabelInput.vue'
 
