@@ -33,7 +33,7 @@ onMounted(() => {
     // console.log(item.textContent)
     console.log('item: ', item)
   })
-  console.log('자식 객체', child.value)
+  console.log('자식 객체', child.value.message)
 })
 const fruits = ref(['apple', 'banana', 'cherry'])
 const child = ref(null)

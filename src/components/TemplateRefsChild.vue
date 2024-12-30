@@ -1,5 +1,7 @@
 <template>
-  <div>{{ $parent }}</div>
+  <!-- <div>{{ $parent }}</div> -->
+  <div>ttt</div>
+  <button @click="sayHello">button</button>
 </template>
 
 <script setup>
@@ -7,6 +9,8 @@ import { onBeforeMount, onMounted, ref } from 'vue'
 
 const message = ref('Hello, World!')
 const sayHello = () => {
+  console.log('click')
+
   alert(message.value)
 }
 onBeforeMount(() => {
