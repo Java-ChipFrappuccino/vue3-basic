@@ -34,9 +34,13 @@ onMounted(() => {
     console.log('item: ', item)
   })
   console.log('자식 객체', child.value.message)
+  console.log('자식 객체', child.value.sayHello())
 })
-const fruits = ref(['apple', 'banana', 'cherry'])
 const child = ref(null)
+const fruits = ref(['apple', 'banana', 'cherry'])
+defineExpose({
+  fruits,
+})
 
 onBeforeMount(() => {
   console.log('부모 onBeforeMount')
